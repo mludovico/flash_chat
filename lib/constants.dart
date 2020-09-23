@@ -17,3 +17,18 @@ const kMessageContainerDecoration = BoxDecoration(
     top: BorderSide(color: Colors.lightBlueAccent, width: 2.0),
   ),
 );
+
+const kInputBorder = OutlineInputBorder(
+  borderSide: BorderSide(
+    color: Colors.lightBlue,
+  ),
+  borderRadius: BorderRadius.all(
+    Radius.circular(30),
+  )
+);
+
+const kProgressHUDTextStyle = TextStyle(
+  decoration: TextDecoration.none,
+  fontSize: 12,
+  color: Colors.white
+);

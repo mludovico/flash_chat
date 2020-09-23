@@ -1,8 +1,10 @@
+import 'package:flash_chat/constants.dart';
 import 'package:flash_chat/screens/chat_screen.dart';
 import 'package:flash_chat/screens/login_screen.dart';
 import 'package:flash_chat/screens/main_screen.dart';
 import 'package:flash_chat/screens/registration_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 
 void main() {
   runApp(FlashChatApp());
@@ -13,19 +15,19 @@ class FlashChatApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark().copyWith(
-        textTheme: TextTheme(
-          bodyText2: TextStyle(
-            color: Colors.black54
-          )
-        )
-      ),
+      debugShowCheckedModeBanner: false,
       title: 'Flash Chat',
       initialRoute: '/',
       routes: {
         '/': (context)=>MainScreen(),
-        '/login': (context)=>LoginScreen(),
-        '/register': (context)=>RegistrationScreen(),
+        '/login': (context)=>ProgressHUD(
+          child: LoginScreen(),
+          textStyle: kProgressHUDTextStyle,
+        ),
+        '/register': (context)=>ProgressHUD(
+          child: RegistrationScreen(),
+          textStyle: kProgressHUDTextStyle,
+        ),
         '/chat': (context)=>ChatScreen(),
       },
     );
